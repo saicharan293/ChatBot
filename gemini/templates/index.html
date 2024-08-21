@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chatbot</title>
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="chatbox">
+            <div class="chatbox__support">
+                <div class="chatbox__header">
+                    <div class="chatbox__image--header">
+                        <!-- User Icon -->
+                        <img src="https://img.icons8.com/color/48/000000/circled-user-female-skin-type-5--v1.png" alt="image">
+                    </div>
+                    <div class="chatbox__content--header">
+                        <!-- Chat Header -->
+                        <h4 class="chatbox__heading--header">Chat support</h4>
+                        <p class="chatbox__description--header">Hi. My name is Bot. How can I help you?</p>
+                    </div>
+                </div>
+                <div class="chatbox__messages">
+                    <!-- Chat history display area -->
+                    <div id="chat-history">
+                        {% if message %}
+                            <p class="you">{{ message }}</p>
+                            <p class="bot">{{ response }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="chatbox__footer">
+                    <!-- Input form -->
+                    <!-- <form method="POST" action="/send_message" class="chatbox__form"> -->
+                        <input type="text" name="message" placeholder="Write a message..." class="chatbox__input">
+                        <button type="button" class="chatbox__send--footer send__button">Send</button>
+                    <!-- </form> -->
+                </div>
+            </div>
+            <div class="chatbox__button">
+                <!-- Button to toggle chatbox -->
+                <button><img src="{{ url_for('static', filename='images/chatbox-icon.svg') }}" /></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for chat functionality -->
+    <script>
+        // var $SCRIPT_ROOT = "{{ request.script_root|tojson|safe }}";
+    </script>
+    <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            height: 100vh;
+            width: 100vw;
+        }
+        .chatbot{
+            width: 100%;
+            height: 100%;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <section class="chatbot">
+
+    <h1>Chatbot</h1>
+    <form method="POST" action="/send_message">
+        <input type="text" name="message" placeholder="Type your message">
+        <button type="submit">Send</button>
+    </form>
+    <div id="chat-history">
+        {% if message %}
+          <p>You: {{ message }}</p>
+          <p>ChatBot: {{ response }}</p>
+        {% endif %}
+      </div>
+    </section>
+
+</body>
+</html> -->
